@@ -29,7 +29,11 @@
 
 ## Basic introduction
         This thing, is used to load Protable Executable format file, runs on UEFI based system, which usually used to load OS kernel file.
-        It first construct the boot info, including memory map, hardware info. Then expand the file to the memory to creat an 'image'. Only image can run correctly on the machine. Loader will map the memory of image to the base address defined by the PE file instead of redirect the whole image. Then it parse the entry point of the image, call it and give the control to your image.
+        It first construct the boot info, including memory map, hardware info. 
+        Then expand the file to the memory to creat an 'image'. 
+        Only image can run correctly on the machine. 
+        Loader will map the memory of image to the base address defined by the PE file instead of redirect the whole image. 
+        Then it parse the entry point of the image, call it and give the control to your image.
 
 ## How to use
 ### Envirment
@@ -37,11 +41,14 @@
 
         2.Put the EFI binary file into your boot device. The path should be /EFI/BOOT/BOOTX64.EFI
 
-        3.Rename your PE file to system.exe. Copy it to the root of your boot device.Or you can change the KERNEL_FILE_NAME in functions.h.(DO NOT TOUCH THAT 'L')
+        3.Rename your PE file to system.exe. 
+        Copy it to the root of your boot device.
+        Or you can change the KERNEL_FILE_NAME in functions.h.(DO NOT TOUCH THAT 'L')
 
         4.Boot
 ### Your PE file
-        Your PE file need specific base address which is defined by your self. And entry function. Entry function must be "void XXX(void)",XXX is your function name
+        Your PE file need specific base address which is defined by your self. 
+        Entry function must be "void XXX(void)",XXX is your function name
 
 ## Hardware state
         UEFI_Spec_2_9_2021_03_18.pdf Page 94
