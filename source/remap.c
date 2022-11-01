@@ -192,12 +192,6 @@ void MapPages(UINT64 pstart_address, UINT64 vstart_address, UINT64 page_count, U
         EnableCR0WP();
 }
 
-void MapKernel(UINT64 image_base_paddr, UINT64 image_base_vaddr, UINT64 image_size)
-{
-        UINT64 page_count = image_size / 0x1000;
-        MapPages(image_base_paddr, image_base_vaddr, page_count, GetCR3Value());
-}
-
 void Map(UINT64 kernel_image_base_paddr, UINT64 kernel_image_base_vaddr, UINT64 image_size, UINT64 alloc_head, struct BootInfo* boot_info)
 {
         //init alloc structure
